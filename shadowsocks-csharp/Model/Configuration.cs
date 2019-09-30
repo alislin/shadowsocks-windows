@@ -32,6 +32,8 @@ namespace Shadowsocks.Model
         public HotkeyConfig hotkey;
 
         private static string CONFIG_FILE = "gui-config.json";
+        //临时目录选择，默认在启动路径下。开启以后使用系统用户AppData目录
+        public bool UseAppDataPath;
 
         public Server GetCurrentServer()
         {
@@ -73,6 +75,7 @@ namespace Shadowsocks.Model
                     config.hotkey = new HotkeyConfig();
 
                 config.proxy.CheckConfig();
+                AppdataPath.Current.UseAppDataPath = config.UseAppDataPath;
 
                 return config;
             }

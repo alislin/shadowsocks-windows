@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Shadowsocks.Controller;
+using Shadowsocks.Model;
 
 namespace Shadowsocks.Util
 {
@@ -30,6 +31,7 @@ namespace Shadowsocks.Util
         // return path to store temporary files
         public static string GetTempPath()
         {
+            return AppdataPath.Current.GetFilePath(@"temp");
             if (_tempPath == null)
             {
                 try
